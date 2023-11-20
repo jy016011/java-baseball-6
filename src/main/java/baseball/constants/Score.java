@@ -1,6 +1,9 @@
 package baseball.constants;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public enum Score {
     NOTHING(false, false, "낫싱"),
@@ -22,6 +25,12 @@ public enum Score {
                 .filter(score -> score.contains == contains && score.isSameIndex == isSameIndex)
                 .findFirst()
                 .orElse(NOTHING);
+    }
+
+    public static List<String> getScoreMessagesBy(Map<Score, Integer> scoreDetails) {
+        return Arrays.stream(values()).filter(score -> score != NOTHING && scoreDetails.containsKey(score))
+                .map(score -> String.format("%d" + score.message, scoreDetails.get(score)))
+                .collect(Collectors.toList());
     }
 
     public String getMessage() {
