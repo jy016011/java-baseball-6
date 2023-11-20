@@ -15,7 +15,7 @@ public class RefereeTest {
         User user = new User();
         Computer computer = new Computer();
         Referee referee = new Referee();
-        user.setNumbers(List.of(1, 2, 3));
+        user.setNumbers("123");
         computer.setNumbers(List.of(1, 2, 3));
         Map<Score, Integer> scoreDetails = referee.getScores(user, computer);
         assertThat(scoreDetails.containsKey(Score.STRIKE)).isEqualTo(true);
@@ -30,7 +30,7 @@ public class RefereeTest {
         User user = new User();
         Computer computer = new Computer();
         Referee referee = new Referee();
-        user.setNumbers(List.of(3, 4, 5));
+        user.setNumbers("345");
         computer.setNumbers(List.of(1, 2, 3));
         Map<Score, Integer> scoreDetails = referee.getScores(user, computer);
         assertThat(scoreDetails.containsKey(Score.STRIKE)).isEqualTo(false);
@@ -46,7 +46,7 @@ public class RefereeTest {
         User user = new User();
         Computer computer = new Computer();
         Referee referee = new Referee();
-        user.setNumbers(List.of(4, 5, 6));
+        user.setNumbers("456");
         computer.setNumbers(List.of(1, 2, 3));
         Map<Score, Integer> scoreDetails = referee.getScores(user, computer);
         assertThat(scoreDetails.containsKey(Score.STRIKE)).isEqualTo(false);
