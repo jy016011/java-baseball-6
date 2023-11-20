@@ -77,4 +77,11 @@ public class OutputViewTest {
         OutputView.printScore(scoreDetails);
         assertThat(output()).isEqualTo("낫싱");
     }
+
+    @DisplayName("종료 문구 출력")
+    @Test
+    void printEndMessage() {
+        OutputView.printEndMessage();
+        assertThat(output()).isEqualTo("3개의 숫자를 모두 맞히셨습니다! 게임종료");
+    }
 }

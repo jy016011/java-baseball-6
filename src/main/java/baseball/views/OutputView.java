@@ -26,4 +26,8 @@ public class OutputView {
         }
         System.out.println(readableForm);
     }
+
+    public static void printEndMessage() {
+        System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임종료");
+    }
 }
