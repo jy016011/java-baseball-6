@@ -38,13 +38,23 @@ public class InputViewTest {
         System.setIn(new ByteArrayInputStream(buf));
     }
 
-    @DisplayName("유저의 숫자 입력받기")
+    @DisplayName("유저의 숫자 입력 받기")
     @Test
     void getUserNumbers() {
         String userInput = "321";
         command(userInput);
         String systemReceived = InputView.getUserNumbers();
         assertThat(output()).isEqualTo("숫자를 입력해주세요 : ");
+        assertThat(systemReceived).isEqualTo(userInput);
+    }
+
+    @DisplayName("재시작 인자 입력 받기")
+    @Test
+    void getRestartInput() {
+        String userInput = "1";
+        command(userInput);
+        String systemReceived = InputView.getRestartInput();
+        assertThat(output()).contains("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
         assertThat(systemReceived).isEqualTo(userInput);
     }
 }
