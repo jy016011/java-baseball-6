@@ -1,6 +1,7 @@
 package baseball.domain;
 
 import baseball.constants.Score;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class Referee {
             Score score = getEachScore(userNumber, index, computer);
             recordScore(scoreDetails, score);
         }
-        return scoreDetails;
+        return Collections.unmodifiableMap(scoreDetails);
     }
 
     private Score getEachScore(int userNumber, int index, Computer computer) {

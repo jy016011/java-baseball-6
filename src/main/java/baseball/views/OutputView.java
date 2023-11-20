@@ -1,0 +1,25 @@
+package baseball.views;
+
+import baseball.constants.Score;
+import java.util.Map;
+
+public class OutputView {
+    private OutputView() {
+    }
+
+    public static void printScore(Map<Score, Integer> scoreDetails) {
+        StringBuilder readableForm = new StringBuilder();
+        if (!scoreDetails.containsKey(Score.STRIKE) && !scoreDetails.containsKey(Score.BALL)) {
+            readableForm.append(Score.NOTHING.getMessage());
+        }
+        if (scoreDetails.containsKey(Score.BALL)) {
+            readableForm.append(scoreDetails.get(Score.BALL))
+                    .append(Score.BALL.getMessage()).append(" ");
+        }
+        if (scoreDetails.containsKey(Score.STRIKE)) {
+            readableForm.append(scoreDetails.get(Score.STRIKE))
+                    .append(Score.STRIKE.getMessage());
+        }
+        System.out.println(readableForm);
+    }
+}
