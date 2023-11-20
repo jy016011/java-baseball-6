@@ -12,7 +12,6 @@ import java.util.Map;
 public class GameService {
     private final static int LENGTH_OF_NUMBERS = 3;
     private final static int RUNNING = 1;
-    private final static int RESTART = RUNNING;
     private final static int END = 2;
     private final static int NONE = 0;
 
@@ -56,7 +55,7 @@ public class GameService {
     }
 
     private void validateRestartInput(int restartFactor) {
-        ArgumentValidator.isNotLessThan(restartFactor, RESTART);
+        ArgumentValidator.isNotLessThan(restartFactor, RUNNING);
         ArgumentValidator.isNotGreaterThan(restartFactor, END);
     }
 }
