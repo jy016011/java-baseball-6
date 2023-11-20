@@ -3,7 +3,6 @@ package baseball.service;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-import baseball.utils.StringChanger;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -24,7 +23,7 @@ public class GameServiceTest {
     @ParameterizedTest
     void invalidRestartInput(String userInput) {
         GameService gameService = new GameService();
-        assertThatThrownBy(() -> gameService.validateRestartInput(StringChanger.toInteger(userInput)))
+        assertThatThrownBy(() -> gameService.resetStatus(userInput))
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
@@ -34,7 +33,7 @@ public class GameServiceTest {
     void validRestartInput(String userInput) {
         GameService gameService = new GameService();
         assertThatCode(
-                () -> gameService.validateRestartInput(StringChanger.toInteger(userInput)))
+                () -> gameService.resetStatus(userInput))
                 .doesNotThrowAnyException();
     }
 }
