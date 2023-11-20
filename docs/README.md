@@ -75,4 +75,44 @@
 
 - [X] 게임을 종료한다.
 
+---
+
+## 🕹 게임 실행 방법
+
+**1. 다운로드**
+
+- git bash에서 다음의 명령어를 입력하여 `Repository`를 `clone`합니다.
+
+```
+git clone -b refactoring https://github.com/jy016011/java-baseball-6.git
+```
+
+- 혹은 [여기](https://github.com/jy016011/java-baseball-6/tree/refactoring)로 이동하여 `<> Code` 버튼을 누른 후 `Download ZIP`을 눌러 파일을
+  다운로드 받습니다.
+
+**2. 실행**
+
+- `java-baseball-6/src/main/java/baseball`의 `Application.java` 파일을 실행합니다.
+
+**3. 실행 예시**
+
+```
+숫자 야구 게임을 시작합니다.
+숫자를 입력해주세요 : 123
+1볼 1스트라이크
+숫자를 입력해주세요 : 145
+1볼
+숫자를 입력해주세요 : 671
+2볼
+숫자를 입력해주세요 : 216
+1스트라이크
+숫자를 입력해주세요 : 713
+3스트라이크
+3개의 숫자를 모두 맞히셨습니다! 게임 종료
+게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.
+1
+숫자를 입력해주세요 : 123
+1볼
+...
+```
 
