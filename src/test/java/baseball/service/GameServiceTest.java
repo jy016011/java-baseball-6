@@ -1,12 +1,17 @@
 package baseball.service;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.Mockito.mockStatic;
 
+import baseball.utils.RandomGenerator;
+import camp.nextstep.edu.missionutils.Randoms;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.MockedStatic;
 
 public class GameServiceTest {
     @DisplayName("컴퓨터의 세자리수는 항상 규칙에 맞는 수들일 것이다.")
@@ -35,5 +40,17 @@ public class GameServiceTest {
         assertThatCode(
                 () -> gameService.resetStatus(userInput))
                 .doesNotThrowAnyException();
+    }
+
+    @DisplayName("유저가 123, 컴퓨터가 124일 경우 스트라이크 개수 2를 반환할 것이다.")
+    @Test
+    void getStrikeCount() {
+        GameService gameService = new GameService();
+        gameService.setUserNumbers("123");
+        try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
+            mock.when(RandomGenerator::pickNaturalNumber).thenReturn(1, 2, 4);
+            gameService.setComputerNumbers();
+        }
+        assertThat(gameService.getStrikeCount()).isEqualTo(2);
     }
 }
