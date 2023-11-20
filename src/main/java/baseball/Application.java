@@ -1,7 +1,11 @@
 package baseball;
 
+import baseball.controller.NumberBaseBall;
+
 public class Application {
     public static void main(String[] args) {
-        // TODO: 프로그램 구현
+        NumberBaseBall numberBaseBall = new NumberBaseBall();
+        numberBaseBall.init();
+        numberBaseBall.run();
     }
 }
