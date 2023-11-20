@@ -25,7 +25,7 @@ public class GameService {
     }
 
     public void setComputerNumbers() {
-        computer.setNumbers(RandomGenerator.pickNumbersInRange(LENGTH_OF_NUMBERS));
+        computer.setNumbers(RandomGenerator.pickNaturalNumbersOf(LENGTH_OF_NUMBERS));
     }
 
     public void setUserNumbers(String userInput) {

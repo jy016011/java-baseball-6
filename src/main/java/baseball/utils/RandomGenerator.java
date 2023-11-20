@@ -11,7 +11,7 @@ public class RandomGenerator {
     private RandomGenerator() {
     }
 
-    public static List<Integer> pickNumbersInRange(int size) {
+    public static List<Integer> pickNaturalNumbersOf(int size) {
         List<Integer> numbers = new ArrayList<>();
         while (numbers.size() < size) {
             int randomNumber = pickNaturalNumber();
