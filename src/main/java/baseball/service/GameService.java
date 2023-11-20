@@ -6,12 +6,10 @@ import baseball.domain.Referee;
 import baseball.domain.User;
 import baseball.utils.ArgumentValidator;
 import baseball.utils.RandomGenerator;
-import baseball.utils.StringChanger;
 import java.util.Map;
 
 public class GameService {
     private final static int LENGTH_OF_NUMBERS = 3;
-    private final static int LENGTH_OF_RESTART_INPUT = 1;
     private final static int RESTART = 1;
     private final static int END = 2;
 
@@ -31,11 +29,8 @@ public class GameService {
         return referee.getScores(user, computer);
     }
 
-    public int validateRestartInput(String userInput) {
-        ArgumentValidator.isEqual(userInput.length(), LENGTH_OF_RESTART_INPUT);
-        int restartFactor = StringChanger.toInteger(userInput);
+    public void validateRestartInput(int restartFactor) {
         ArgumentValidator.isNotLessThan(restartFactor, RESTART);
         ArgumentValidator.isNotGreaterThan(restartFactor, END);
-        return restartFactor;
     }
 }
