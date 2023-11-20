@@ -7,6 +7,10 @@ public class OutputView {
     private OutputView() {
     }
 
+    public static void printStartMessage() {
+        System.out.println("숫자 야구 게임을 시작합니다.");
+    }
+
     public static void printScore(Map<Score, Integer> scoreDetails) {
         StringBuilder readableForm = new StringBuilder();
         if (!scoreDetails.containsKey(Score.STRIKE) && !scoreDetails.containsKey(Score.BALL)) {

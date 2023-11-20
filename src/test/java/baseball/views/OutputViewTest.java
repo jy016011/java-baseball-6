@@ -33,6 +33,13 @@ public class OutputViewTest {
         return captor.toString().trim();
     }
 
+    @DisplayName("시작문구 출력")
+    @Test
+    void printStartMessage() {
+        OutputView.printStartMessage();
+        assertThat(output()).isEqualTo("숫자 야구 게임을 시작합니다.");
+    }
+
     @DisplayName("1볼 1스트라이크")
     @Test
     void oneBallOneStrike() {
