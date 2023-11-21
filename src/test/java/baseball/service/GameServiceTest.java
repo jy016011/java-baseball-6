@@ -46,6 +46,7 @@ public class GameServiceTest {
     @Test
     void getStrikeCount() {
         GameService gameService = new GameService();
+        gameService.setStatus();
         gameService.setUserNumbers("123");
         try (final MockedStatic<Randoms> mock = mockStatic(Randoms.class)) {
             mock.when(RandomGenerator::pickNaturalNumber).thenReturn(1, 2, 4);

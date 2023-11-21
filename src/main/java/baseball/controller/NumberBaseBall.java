@@ -16,7 +16,7 @@ public class NumberBaseBall {
 
     public void run() {
         OutputView.printStartMessage();
-        setComputerNumbers();
+        gameService.setComputerNumbers();
         while (gameService.getStatus() == RUNNING) {
             setUserNumbers();
             printResult();
@@ -38,12 +38,6 @@ public class NumberBaseBall {
             OutputView.printEndMessage();
             String userInput = InputView.getRestartInput();
             gameService.resetStatus(userInput);
-            setComputerNumbers();
-        }
-    }
-
-    private void setComputerNumbers() {
-        if (gameService.getStatus() == RUNNING) {
             gameService.setComputerNumbers();
         }
     }
