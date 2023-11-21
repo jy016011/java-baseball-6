@@ -28,6 +28,9 @@ public enum Score {
     }
 
     public static List<String> getScoreMessagesBy(Map<Score, Integer> scoreDetails) {
+        if (scoreDetails.keySet().stream().allMatch(score -> score == NOTHING)) {
+            return List.of(NOTHING.getMessage());
+        }
         return Arrays.stream(values()).filter(score -> score != NOTHING && scoreDetails.containsKey(score))
                 .map(score -> String.format("%d" + score.message, scoreDetails.get(score)))
                 .collect(Collectors.toList());

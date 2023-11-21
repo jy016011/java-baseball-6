@@ -18,9 +18,6 @@ public class OutputView {
         for (String message : messages) {
             readableForm.append(message).append(" ");
         }
-        if (messages.isEmpty()) {
-            readableForm.append(Score.NOTHING.getMessage());
-        }
         System.out.println(readableForm);
     }
 
